@@ -9,8 +9,15 @@ public class SinglyLinkedList {
         return this.size;
     }
 
-    public Integer get(int index) {
+    public Integer getFirst() {
+        return this.head.getValue();
+    }
 
+    public Integer getLast() {
+        return this.tail.getValue();
+    }
+
+    public Integer get(int index) {
         if (index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
@@ -26,8 +33,13 @@ public class SinglyLinkedList {
         return currentNode.getValue();
     }
 
-    private Node getNode(int index) {
+    public Integer set(int index, int value) {
+        Node node = this.getNode(index);
+        node.setValue(value);
+        return node.getValue();
+    }
 
+    private Node getNode(int index) {
         if (index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
