@@ -42,15 +42,15 @@ public class SinglyLinkedList {
     public void add(int value) {
         Node newNode = new Node(value);
 
-        if (size == 0) {
-            head = newNode;
-            tail = newNode;
+        if (this.size == 0) {
+            this.head = newNode;
+            this.tail = newNode;
         } else {
-            tail.next = newNode;
-            tail = newNode;
+            this.tail.next = newNode;
+            this.tail = newNode;
         }
 
-        size++;
+        this.size++;
     }
 
     public void add(int index, int value) {
@@ -60,16 +60,16 @@ public class SinglyLinkedList {
             throw new IndexOutOfBoundsException();
         }
 
-        if (size == 0) {
-            head = newNode;
-            tail = newNode;
+        if (this.size == 0) {
+            this.head = newNode;
+            this.tail = newNode;
         } else {
             if (index == 0) {
-                newNode.next = head;
-                head = newNode;
+                newNode.next = this.head;
+                this.head = newNode;
             } else if (index == this.size) {
-                tail.next = newNode;
-                tail = newNode;
+                this.tail.next = newNode;
+                this.tail = newNode;
             } else {
                 Node currentNode = this.getNode(index - 1);
                 newNode.next = currentNode.next;
@@ -77,7 +77,7 @@ public class SinglyLinkedList {
             }
         }
 
-        size++;
+        this.size++;
     }
 
     public boolean isPresent(int value) {
@@ -141,15 +141,15 @@ public class SinglyLinkedList {
 
         int value = this.get(index);
 
-        if (size == 1) {
-            head = null;
-            tail = null;
+        if (this.size == 1) {
+            this.head = null;
+            this.tail = null;
         } else {
             if (index == 0) {
-                head = head.next;
+                this.head = this.head.next;
             } else if (index == this.size - 1) {
-                tail = this.getNode(this.size - 2);
-                tail.next = null;
+                this.tail = this.getNode(this.size - 2);
+                this.tail.next = null;
             } else {
                 Node nodeToRemove = this.getNode(index);
                 Node currentNode = this.getNode(index - 1);
@@ -157,7 +157,7 @@ public class SinglyLinkedList {
             }
         }
 
-        size--;
+        this.size--;
         return value;
     }
 
