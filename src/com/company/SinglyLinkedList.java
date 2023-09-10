@@ -149,6 +149,7 @@ public class SinglyLinkedList {
                 head = head.next;
             } else if (index == this.size - 1) {
                 tail = this.getNode(this.size - 2);
+                tail.next = null;
             } else {
                 Node nodeToRemove = this.getNode(index);
                 Node currentNode = this.getNode(index - 1);
