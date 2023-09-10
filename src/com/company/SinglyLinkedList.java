@@ -1,9 +1,13 @@
 package com.company;
 
 public class SinglyLinkedList {
-    Node head = null;
-    Node tail = null;
-    int size = 0;
+    private Node head = null;
+    private Node tail = null;
+    private int size = 0;
+
+    public int getSize() {
+        return this.size;
+    }
 
     public Integer get(int index) {
 
@@ -15,11 +19,11 @@ public class SinglyLinkedList {
         Node currentNode = this.head;
 
         while (currentIndex < index) {
-            currentNode = currentNode.next;
+            currentNode = currentNode.getNext();
             currentIndex++;
         }
 
-        return currentNode.value;
+        return currentNode.getValue();
     }
 
     private Node getNode(int index) {
@@ -32,7 +36,7 @@ public class SinglyLinkedList {
         Node currentNode = this.head;
 
         while (currentIndex < index) {
-            currentNode = currentNode.next;
+            currentNode = currentNode.getNext();
             currentIndex++;
         }
 
@@ -46,7 +50,7 @@ public class SinglyLinkedList {
             this.head = newNode;
             this.tail = newNode;
         } else {
-            this.tail.next = newNode;
+            this.tail.setNext(newNode);
             this.tail = newNode;
         }
 
@@ -65,15 +69,15 @@ public class SinglyLinkedList {
             this.tail = newNode;
         } else {
             if (index == 0) {
-                newNode.next = this.head;
+                newNode.setNext(this.head);
                 this.head = newNode;
             } else if (index == this.size) {
-                this.tail.next = newNode;
+                this.tail.setNext(newNode);
                 this.tail = newNode;
             } else {
                 Node currentNode = this.getNode(index - 1);
-                newNode.next = currentNode.next;
-                currentNode.next = newNode;
+                newNode.setNext(currentNode.getNext());
+                currentNode.setNext(newNode);
             }
         }
 
@@ -84,11 +88,11 @@ public class SinglyLinkedList {
         Node currentNode = this.head;
 
         do {
-            if (currentNode.value == value) {
+            if (currentNode.getValue() == value) {
                 return true;
             }
 
-            currentNode = currentNode.next;
+            currentNode = currentNode.getNext();
         } while (currentNode != this.tail);
 
         return false;
@@ -100,11 +104,11 @@ public class SinglyLinkedList {
             Node currentNode = this.head;
 
             while (currentIndex < this.size) {
-                if (currentNode.value == value) {
+                if (currentNode.getValue() == value) {
                     return currentIndex;
                 }
 
-                currentNode = currentNode.next;
+                currentNode = currentNode.getNext();
                 currentIndex++;
             }
         }
@@ -119,11 +123,11 @@ public class SinglyLinkedList {
             int lastIndex = 0;
 
             while (currentIndex < this.size) {
-                if (currentNode.value == value) {
+                if (currentNode.getValue() == value) {
                     lastIndex = currentIndex;
                 }
 
-                currentNode = currentNode.next;
+                currentNode = currentNode.getNext();
                 currentIndex++;
             }
 
@@ -146,14 +150,14 @@ public class SinglyLinkedList {
             this.tail = null;
         } else {
             if (index == 0) {
-                this.head = this.head.next;
+                this.head = this.head.getNext();
             } else if (index == this.size - 1) {
                 this.tail = this.getNode(this.size - 2);
-                this.tail.next = null;
+                this.tail.setNext(null);
             } else {
                 Node nodeToRemove = this.getNode(index);
                 Node currentNode = this.getNode(index - 1);
-                currentNode.next = nodeToRemove.next;
+                currentNode.setNext(nodeToRemove.getNext());
             }
         }
 

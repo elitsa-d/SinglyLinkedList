@@ -11,7 +11,7 @@ public class Main {
         list.add(1);
         list.add(3, 7);
 
-        for (int i = 0; i < list.size; i++) {
+        for (int i = 0; i < list.getSize(); i++) {
             System.out.println(list.get(i));
         }
 
@@ -22,7 +22,7 @@ public class Main {
         System.out.println("Number one is found for the last time at position " + lastIndexOfOne);
 
         list.remove(1);
-        for (int i = 0; i < list.size; i++) {
+        for (int i = 0; i < list.getSize(); i++) {
             System.out.println(list.get(i));
         }
 
@@ -30,7 +30,7 @@ public class Main {
         System.out.println("Is the value of fourteen present in the list: " + list.isPresent(14));
 
         list.removeAll();
-        for (int i = 0; i < list.size; i++) {
+        for (int i = 0; i < list.getSize(); i++) {
             System.out.println(list.get(i));
         }
     }
