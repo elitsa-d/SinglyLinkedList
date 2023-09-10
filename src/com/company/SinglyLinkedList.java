@@ -23,6 +23,11 @@ public class SinglyLinkedList {
     }
 
     private Node getNode(int index) {
+
+        if (index >= this.size) {
+            throw new IndexOutOfBoundsException();
+        }
+
         int currentIndex = 0;
         Node currentNode = this.head;
 
