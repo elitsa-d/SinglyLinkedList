@@ -5,40 +5,6 @@ public class SinglyLinkedList {
     private Node tail = null;
     private int size = 0;
 
-    public int getSize() {
-        return this.size;
-    }
-
-    public Integer getFirst() {
-        return this.head.getValue();
-    }
-
-    public Integer getLast() {
-        return this.tail.getValue();
-    }
-
-    public Integer get(int index) {
-        if (index >= this.size) {
-            throw new IndexOutOfBoundsException();
-        }
-
-        int currentIndex = 0;
-        Node currentNode = this.head;
-
-        while (currentIndex < index) {
-            currentNode = currentNode.getNext();
-            currentIndex++;
-        }
-
-        return currentNode.getValue();
-    }
-
-    public Integer set(int index, int value) {
-        Node node = this.getNode(index);
-        node.setValue(value);
-        return node.getValue();
-    }
-
     private Node getNode(int index) {
         if (index >= this.size) {
             throw new IndexOutOfBoundsException();
@@ -53,6 +19,29 @@ public class SinglyLinkedList {
         }
 
         return currentNode;
+    }
+
+    public int getSize() {
+        return this.size;
+    }
+
+    public Integer getFirst() {
+        return this.head.getValue();
+    }
+
+    public Integer getLast() {
+        return this.tail.getValue();
+    }
+
+    public Integer get(int index) {
+        Node node = this.getNode(index);
+        return node.getValue();
+    }
+
+    public Integer set(int index, int value) {
+        Node node = this.getNode(index);
+        node.setValue(value);
+        return node.getValue();
     }
 
     public void add(int value) {
