@@ -6,7 +6,7 @@ public class SinglyLinkedList {
     private int size = 0;
 
     private Node getNode(int index) {
-        if (index >= this.size) {
+        if (index < 0 || index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
 
@@ -61,7 +61,7 @@ public class SinglyLinkedList {
     public void add(int index, int value) {
         Node newNode = new Node(value);
 
-        if (index > this.size) {
+        if (index < 0 || index > this.size) {
             throw new IndexOutOfBoundsException();
         }
 
@@ -139,8 +139,7 @@ public class SinglyLinkedList {
     }
 
     public Integer remove(int index) {
-
-        if (index >= this.size) {
+        if (index < 0 || index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
 
