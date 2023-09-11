@@ -155,9 +155,8 @@ public class SinglyLinkedList {
                 this.tail = this.getNode(this.size - 2);
                 this.tail.setNext(null);
             } else {
-                Node nodeToRemove = this.getNode(index);
                 Node currentNode = this.getNode(index - 1);
-                currentNode.setNext(nodeToRemove.getNext());
+                currentNode.setNext(currentNode.getNext().getNext());
             }
         }
 
