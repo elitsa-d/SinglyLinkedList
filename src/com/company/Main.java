@@ -1,6 +1,7 @@
 package com.company;
 
 import java.sql.SQLOutput;
+import java.util.LinkedList;
 
 public class Main {
 
@@ -38,5 +39,7 @@ public class Main {
 
         list.removeAll();
         System.out.println("Size of list after calling 'removeAll()' method: " + list.getSize());
+
+        list.remove(0);
     }
 }
