@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.HashSet;
+
 public class SinglyLinkedList {
     private Node head = null;
     private Node tail = null;
@@ -162,6 +164,24 @@ public class SinglyLinkedList {
 
         this.size--;
         return value;
+    }
+
+    public void removeDuplicates() {
+        HashSet<Integer> hashSet = new HashSet<>();
+        Node currentNode = this.head;
+        int currentIndex = 0;
+
+        do {
+            int value = currentNode.getValue();
+            if (hashSet.contains(value)) {
+                this.remove(currentIndex);
+            } else {
+                hashSet.add(value);
+                currentIndex++;
+            }
+
+            currentNode = currentNode.getNext();
+        } while (currentNode != null);
     }
 
     public void removeAll() {

@@ -15,6 +15,12 @@ public class Main {
         list.add(12);
         list.add(3, 7);
 
+        list.removeDuplicates();
+
+        for (int i = 0; i < list.getSize(); i++) {
+            System.out.println(list.get(i));
+        }
+
         System.out.println("First: " + list.getFirst());
         System.out.println("Last: " + list.getLast());
 
