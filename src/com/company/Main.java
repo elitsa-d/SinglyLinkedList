@@ -9,10 +9,11 @@ public class Main {
         SinglyLinkedList list = new SinglyLinkedList();
         list.add(1);
         list.add(2);
-        list.add(3);
         list.add(4);
         list.add(1);
+        list.add(5);
         list.add(12);
+        list.add(3);
         list.add(3, 7);
 
         System.out.println(list.isPresent(12));
@@ -37,9 +38,10 @@ public class Main {
         System.out.println("Is the value of four present in the list: " + list.isPresent(4));
         System.out.println("Is the value of fourteen present in the list: " + list.isPresent(14));
 
+        list.partition(7);
+        list.print();
+
         list.removeAll();
         System.out.println("Size of list after calling 'removeAll()' method: " + list.getSize());
-
-        list.remove(0);
     }
 }

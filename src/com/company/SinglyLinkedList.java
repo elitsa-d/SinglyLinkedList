@@ -200,4 +200,24 @@ public class SinglyLinkedList {
         this.tail = null;
         this.size = 0;
     }
+
+    /**
+     * Partitions a list in such a way that all values less than x are located to the left of all value equal or greater than x.
+     *
+     * @param x   the value based on which the partitioning is made
+     */
+
+    public void partition(int x) {
+        Node currentNode = this.head;
+        int currentIndex = 0;
+
+        do {
+            if (currentNode.getValue() < x) {
+                this.remove(currentIndex);
+                this.add(0, currentNode.getValue());
+            }
+            currentNode = currentNode.getNext();
+            currentIndex++;
+        } while(currentNode != null);
+    }
 }
