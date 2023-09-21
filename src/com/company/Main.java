@@ -15,18 +15,11 @@ public class Main {
         list.add(12);
         list.add(3, 7);
 
-        list.removeDuplicates();
-
-        for (int i = 0; i < list.getSize(); i++) {
-            System.out.println(list.get(i));
-        }
+        System.out.println(list.isPresent(12));
+        list.print();
 
         System.out.println("First: " + list.getFirst());
         System.out.println("Last: " + list.getLast());
-
-        for (int i = 0; i < list.getSize(); i++) {
-            System.out.println(list.get(i));
-        }
 
         int indexOfOne = list.indexOf(1);
         System.out.println("Number one is found for the first time at position " + indexOfOne);
@@ -34,11 +27,12 @@ public class Main {
         int lastIndexOfOne = list.lastIndexOf(1);
         System.out.println("Number one is found for the last time at position " + lastIndexOfOne);
 
+        list.removeDuplicates();
+        list.print();
+
         list.remove(1);
         list.set(2, 50);
-        for (int i = 0; i < list.getSize(); i++) {
-            System.out.println(list.get(i));
-        }
+        list.print();
 
         System.out.println("Is the value of four present in the list: " + list.isPresent(4));
         System.out.println("Is the value of fourteen present in the list: " + list.isPresent(14));
